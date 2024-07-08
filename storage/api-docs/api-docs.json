@@ -1,0 +1,221 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Event Manager API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/events": {
+            "get": {
+                "summary": "Listar todos os eventos",
+                "description": "Exibir uma lista de eventos.",
+                "operationId": "c86d8a40d9488d736d209ceeb89fb5fd",
+                "responses": {
+                    "200": {
+                        "description": "Lista de eventos"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Criar um novo evento",
+                "description": "Criar um novo evento.",
+                "operationId": "eeb23e52de9343beaad55c191f1f39b4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "event_date",
+                                    "name",
+                                    "responsible",
+                                    "city",
+                                    "state",
+                                    "address",
+                                    "number",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "Imagem",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "event_date": {
+                                        "description": "Data e hora do evento",
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "name": {
+                                        "description": "Nome do evento",
+                                        "type": "string"
+                                    },
+                                    "responsible": {
+                                        "description": "Responsável",
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "description": "Cidade",
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "description": "Estado",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "Endereço",
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "description": "Número",
+                                        "type": "string"
+                                    },
+                                    "complement": {
+                                        "description": "Complemento",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Telefone",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Evento criado com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/events/{id}": {
+            "get": {
+                "summary": "Mostrar um evento",
+                "description": "Exibir os detalhes de um evento.",
+                "operationId": "b36dc9bdef28f70cfffd7e1c974c2801",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalhes do evento"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualizar um evento",
+                "description": "Atualizar um evento existente.",
+                "operationId": "f786734994da06f832492d7b8cc26069",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "event_date",
+                                    "name",
+                                    "responsible",
+                                    "city",
+                                    "state",
+                                    "address",
+                                    "number",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "Imagem",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "event_date": {
+                                        "description": "Data e hora do evento",
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "name": {
+                                        "description": "Nome do evento",
+                                        "type": "string"
+                                    },
+                                    "responsible": {
+                                        "description": "Responsável",
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "description": "Cidade",
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "description": "Estado",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "Endereço",
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "description": "Número",
+                                        "type": "string"
+                                    },
+                                    "complement": {
+                                        "description": "Complemento",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Telefone",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Evento atualizado com sucesso"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Excluir um evento",
+                "description": "Remover um evento.",
+                "operationId": "943baddd9375f93da8849ac54c19da8f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Evento excluído com sucesso"
+                    }
+                }
+            }
+        }
+    }
+}
